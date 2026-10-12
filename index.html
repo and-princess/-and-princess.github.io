@@ -3,192 +3,205 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>&Princess - 子ども向け出張変身イベント</title>
+  <title>&Princess | キッズ変身体験イベント</title>
   <style>
     :root {
-      --primary-pink: #f7a8b8;
-      --soft-pink: #fdf2f4;
-      --gold: #d4af37;
-      --text-color: #4a3e3d;
-      --bg-color: #fffafb;
+      --primary: #d46b85;
+      --primary-light: #fdf2f4;
+      --accent: #d4af37;
+      --text: #4a3e3d;
+      --bg: #fffbfb;
     }
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", sans-serif;
-      color: var(--text-color);
-      background-color: var(--bg-color);
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.6;
+      padding-bottom: 40px;
     }
-    header {
-      background: linear-gradient(135deg, #ffeef2, #fff);
-      padding: 40px 20px;
+    .hero {
+      background: linear-gradient(180deg, #ffeef2 0%, var(--bg) 100%);
       text-align: center;
-      border-bottom: 2px solid var(--soft-pink);
+      padding: 40px 20px 30px;
     }
     .badge {
       display: inline-block;
-      background: var(--gold);
-      color: white;
-      font-size: 13px;
+      background-color: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
       font-weight: bold;
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 20px;
-      margin-bottom: 12px;
-      letter-spacing: 0.05em;
+      margin-bottom: 15px;
     }
     h1 {
-      font-size: 26px;
-      color: #b05c6d;
+      color: var(--primary);
+      font-size: 2rem;
       margin-bottom: 12px;
-      line-height: 1.3;
+      letter-spacing: 1px;
     }
-    .hero-sub {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 20px;
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: #665;
     }
     .container {
       max-width: 600px;
       margin: 0 auto;
-      padding: 24px 16px;
+      padding: 0 16px;
     }
     .card {
       background: #fff;
-      border-radius: 12px;
-      padding: 24px 20px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-      border: 1px solid #fcecee;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    h2 {
-      font-size: 20px;
-      color: #b05c6d;
-      margin-bottom: 16px;
+    .section-title {
+      color: var(--primary);
       text-align: center;
+      font-size: 1.25rem;
+      margin-bottom: 16px;
       position: relative;
     }
-    h2::after {
-      content: '';
+    .section-title::after {
+      content: "";
       display: block;
       width: 40px;
       height: 2px;
-      background: var(--primary-pink);
-      margin: 8px auto 0;
+      background-color: var(--primary);
+      margin: 6px auto 0;
+      border-radius: 2px;
     }
     .feature-list {
       list-style: none;
-      padding: 0;
     }
-    .feature-list li {
-      position: relative;
-      padding-left: 28px;
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
       margin-bottom: 14px;
-      font-size: 14px;
+      font-size: 0.95rem;
     }
-    .feature-list li::before {
-      content: '✔';
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--primary-pink);
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+    .check-icon {
+      color: var(--primary);
       font-weight: bold;
-      font-size: 16px;
+      margin-right: 8px;
     }
     .price-box {
-      text-align: center;
-      background: var(--soft-pink);
+      background-color: var(--primary-light);
+      border-radius: 12px;
       padding: 20px;
-      border-radius: 8px;
-      margin-top: 16px;
-    }
-    .price-regular {
-      text-decoration: line-through;
-      color: #888;
-      font-size: 14px;
-    }
-    .price-special {
-      font-size: 24px;
-      font-weight: bold;
-      color: #d94b68;
-      margin: 6px 0;
-    }
-    .price-note {
-      font-size: 12px;
-      color: #666;
-    }
-    .cta-area {
       text-align: center;
-      margin-top: 30px;
-      margin-bottom: 40px;
+      margin-bottom: 16px;
     }
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #f7a8b8, #e87a90);
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
+    .plan-name {
       font-weight: bold;
-      padding: 16px 32px;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .price-amount {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    .price-unit {
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .price-details {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: #555;
+      text-align: left;
+      line-height: 1.8;
+      border-top: 1px dashed #e8c5ce;
+      padding-top: 12px;
+    }
+    .note-list {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 10px;
+      padding-left: 18px;
+    }
+    .cta-btn {
+      display: block;
+      background: linear-gradient(135deg, var(--primary) 0%, #c45672 100%);
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 14px;
       border-radius: 30px;
-      box-shadow: 0 4px 15px rgba(247, 168, 184, 0.5);
+      box-shadow: 0 4px 10px rgba(212, 107, 133, 0.3);
+      margin-top: 20px;
     }
     footer {
       text-align: center;
-      padding: 24px 16px;
-      font-size: 12px;
-      color: #888;
-      border-top: 1px solid #eee;
-    }
-    footer a {
-      color: #b05c6d;
-      text-decoration: none;
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <div class="hero">
     <div class="badge">1日10組来場保証プラン実施中</div>
-    <h1>＆Princess</h1>
-    <p class="hero-sub">憧れのドレスと本格撮影ブースで<br>特別なプリンセス体験をお届けします</p>
-  </header>
+    <h1>&Princess</h1>
+    <p class="hero-subtitle">憧れのドレスと本格撮影ブースで<br>特別なプリンセス体験をお届けします</p>
+  </div>
 
   <div class="container">
     <div class="card">
-      <h2>サービスの特徴</h2>
+      <h2 class="section-title">サービスの特徴</h2>
       <ul class="feature-list">
-        <li><strong>手ぶらで設営完了：</strong>衣装・背景・小道具一式をすべて持ち込み、短時間でブースを完成させます。</li>
-        <li><strong>高い集客効果：</strong>ファミリー層の目を引くフォトスポットで、ブース前での滞在時間が大幅にアップ。</li>
-        <li><strong>来場保証付き：</strong>「イベントをやっても人が集まるか不安…」という企業様にも安心の成果連動対応。</li>
+        <li class="feature-item">
+          <span class="check-icon">✔</span>
+          <div><strong>手ぶらで設営完了：</strong> 衣装・背景・小道具一式をすべて持ち込み、短時間でブースを完成させます。</div>
+        </li>
+        <li class="feature-item">
+          <span class="check-icon">✔</span>
+          <div><strong>高い集客効果：</strong> ファミリー層の目を引くフォトスポットで、ブース前での滞在時間が大幅にアップ。</div>
+        </li>
+        <li class="feature-item">
+          <span class="check-icon">✔</span>
+          <div><strong>来場保証付き：</strong> 「イベントをやっても人が集まるか不安…」という企業様にも安心の成果連動対応。</div>
+        </li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>料金プラン</h2>
+      <h2 class="section-title">料金プラン</h2>
       <div class="price-box">
-        <p class="price-regular">通常基本プラン：70,000円〜</p>
-        <p class="price-special">初回モニター枠：30,000円（税込）</p>
-        <p class="price-note">※1日10組の来場保証付き特別キャンペーン価格</p>
+        <div class="plan-name">基本プラン（2時間）</div>
+        <div class="price-amount">70,000<span class="price-unit">円〜（税別）</span></div>
+        <div class="price-details">
+          ・拘束時間：最大2時間<br>
+          ・スタッフ体制：2〜3名<br>
+          ・衣装・撮影環境の設営および運営一式を含む
+        </div>
       </div>
-    </div>
-
-    <div class="cta-area">
-      <a href="mailto:yanatasu.08@gmail.com?subject=【＆Princess】イベントのお問い合わせ" class="btn">お問い合わせ・日程の相談をする</a>
+      <ul class="note-list">
+        <li>土日祝日の開催：+10,000円</li>
+        <li>時間延長：1時間につき +10,000円</li>
+        <li>遠方開催時の交通費・宿泊費は別途実費となります。</li>
+        <li>イベント規模やご予算に応じた個別のお見積りも承ります。</li>
+      </ul>
+      <a href="mailto:info@and-princess.example.com" class="cta-btn">お問い合わせ・お見積りはこちら</a>
     </div>
   </div>
 
   <footer>
-    <p>Produced by +Yana（ヤナタス） / 豊永まみ</p>
-    <p style="margin-top: 6px;">
-      <a href="https://www.instagram.com/and__princess/" target="_blank">Instagram: @and__princess</a>
-    </div>
-    <p style="margin-top: 12px; font-size: 11px; color: #aaa;">
-      ※売上の一部は保護犬・保護猫活動へ寄付いたします。
-    </p>
+    &copy; 2026 &Princess. All rights reserved.
   </footer>
 
 </body>
