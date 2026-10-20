@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&Princess（アンドプリンセス） | キッズ向け体験型変身イベント</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #9b4d6e;
+      --primary-dark: #7a3854;
+      --primary-light: #fbf5f7;
+      --accent: #d4af37;
+      --accent-soft: #f4ecdf;
+      --text: #2f272a;
+      --text-sub: #665b60;
+      --line-green: #06C755;
+      --card-bg: #ffffff;
+      --border-color: #f0e6ea;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--primary-light);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* --- Navigation --- */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+    }
+
+    .brand-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+    }
+
+    .nav-btn {
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      padding: 70px 24px 60px;
+      text-align: center;
+      background: radial-gradient(circle at top, #ffffff 0%, var(--primary-light) 100%);
+    }
+
+    .hero-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      max-width: 620px;
+      margin: 0 auto 36px;
+      line-height: 1.9;
+    }
+
+    .cta-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .btn-main {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 28px;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-line {
+      background: var(--line-green);
+      color: #fff;
+    }
+
+    .btn-mail {
+      background: #ffffff;
+      color: var(--text);
+      border: 1.5px solid var(--border-color);
+    }
+
+    /* --- Common Layout --- */
+    .section {
+      padding: 70px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.7rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title p {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    /* --- Features / Value --- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .feature-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    /* --- Photo Gallery (Placeholder) --- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .photo-placeholder {
+      aspect-ratio: 1 / 1;
+      background: #eee3e8;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #9c8e94;
+      font-size: 0.8rem;
+      border: 1px dashed #d0c0c7;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* --- Pricing Section --- */
+    .pricing-card {
+      background: #fff;
+      border: 2px solid var(--primary);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(155, 77, 110, 0.08);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .pricing-header {
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+
+    .plan-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .price-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .price-unit {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      margin-top: 6px;
+    }
+
+    .plan-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .plan-list li {
+      padding: 10px 0;
+      border-bottom: 1px dashed #f5eaef;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: baseline;
+    }
+
+    .plan-list li::before {
+      content: "✔";
+      color: var(--accent);
+      margin-right: 12px;
+      font-size: 0.9rem;
+    }
+
+    .sub-notice {
+      background: var(--primary-light);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    /* --- Operational Notes --- */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .spec-table th, .spec-table td {
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .spec-table th {
+      background: #faf4f6;
+      width: 32%;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .spec-table td {
+      color: var(--text-sub);
+    }
+
+    /* --- Footer / Legal --- */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border-color);
+      padding: 50px 20px 30px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a {
+      color: var(--text-sub);
+      text-decoration: none;
+    }
+
+    .copyright {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 1.75rem;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .spec-table th, .spec-table td {
+        display: block;
+        width: 100%;
+      }
+      .spec-table th {
+        border-bottom: none;
+        padding-bottom: 4px;
+      }
+      .spec-table td {
+        padding-top: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="brand-logo">&Princess</div>
+    <a href="#contact" class="nav-btn">お問い合わせ</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1 class="hero-title">特別なドレスで広がる笑顔。<br>上質なキッズ体験イベント</h1>
+    <p class="hero-subtitle">
+      商業施設・住宅展示場・各種プロモーション向け。<br>
+      衣装のご用意から受付、着付け、撮影空間の演出まで、専任プロチームがワンストップで現場を創り上げます。
+    </p>
+    <div class="cta-container">
+      <a href="https://line.me" target="_blank" rel="noopener" class="btn-main btn-line">
+        公式LINEでお問い合わせ
+      </a>
+      <a href="mailto:info@example.com" class="btn-main btn-mail">
+        メールでご相談・お見積り
+      </a>
+    </div>
+  </header>
+
+  <!-- Value Section -->
+  <section class="section">
+    <div class="section-title">
+      <h2>安心と満足を支える3つのこだわり</h2>
+      <p>スムーズな運営と安全管理を徹底しています</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <h3>専任スタッフ3名体制</h3>
+        <p>安全管理と細やかなお子様ケアを最優先に考え、イベント現場には必ず3名の専任スタッフが常駐いたします。</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <h3>上質な衣装と装飾</h3>
+        <p>細部までこだわったドレスと世界観を演出するフォトブースで、ファミリーの満足度と滞在価値を高めます。</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <h3>設営から撤収まで一括対応</h3>
+        <p>主催者様の手を煩わせない現場オペレーションを構築。スムーズな進行で会場の混乱を防ぎます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section">
+    <div class="section-title">
+      <h2>現場イメージ</h2>
+      <p>※写真は順次追加・更新いたします</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="photo-placeholder">イベント風景 01</div>
+      <div class="photo-placeholder">ドレスラインナップ</div>
+      <div class="photo-placeholder">撮影フォトブース</div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section" id="pricing">
+    <div class="section-title">
+      <h2>明朗な料金プラン</h2>
+      <p>追加費用で迷わせない、分かりやすい固定パッケージ制です</p>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <div class="plan-name">基本パッケージ</div>
+        <div class="price-value">70,000<span style="font-size:1.2rem; font-weight:400; color:var(--text);"> 円</span></div>
+        <div class="price-unit">税別 / 2時間開催（専任スタッフ3名体制）</div>
+      </div>
+
+      <ul class="plan-list">
+        <li><strong>イベント実施時間：</strong> 2時間</li>
+        <li><strong>現場体制：</strong> 専任プロスタッフ 3名</li>
+        <li><strong>準備・片付け：</strong> 事前設営 約2時間 / 撤収 約1時間</li>
+        <li><strong>衣装・機材：</strong> 一式持ち込み・空間セッティング込み</li>
+      </ul>
+
+      <div class="sub-notice">
+        <strong>【諸経費・オプションについて】</strong><br>
+        ・都内出張費：一律 4,500円（税別）<br>
+        ・都外・遠方開催：移動距離に応じた「遠方出張パッケージ（機材運搬・移動宿泊）」をお見積り時に一括提示いたします（後からの実費精算はございません）。<br>
+        ・時間延長・土日祝日対応などのご要望はお気軽にご相談ください。
+      </div>
+    </div>
+  </section>
+
+  <!-- Operational Specs Table -->
+  <section class="section">
+    <div class="section-title">
+      <h2>開催要項・運営概要</h2>
+    </div>
+
+    <table class="spec-table">
+      <tr>
+        <th>事業屋号</th>
+        <td>+Yana（プラスヤナ）</td>
+      </tr>
+      <tr>
+        <th>サービス名</th>
+        <td>&Princess（アンドプリンセス）</td>
+      </tr>
+      <tr>
+        <th>運営体制</th>
+        <td>基本3名体制（設営2h / 本番2h / 撤収1h）</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>東京都港区（※詳細な番地・連絡先はご契約・お取引時に遅滞なく開示いたします）</td>
+      </tr>
+      <tr>
+        <th>お問い合わせ窓口</th>
+        <td>公式LINE / 電子メール</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="section" id="contact" style="text-align: center; padding-top: 20px;">
+    <div class="section-title">
+      <h2>日程のご相談・お見積り</h2>
+      <p>ご希望の開催日程や会場規模など、まずはお気軽にご連絡ください</p>
+    </div>
+
+    <div class="cta-container">
+      <a href="https://line.me" target="_blank" rel="noopener" class="btn-main btn-line">
+        公式LINEでお問い合わせ
+      </a>
+      <a href="mailto:info@example.com" class="btn-main btn-mail">
+        メールでご相談・お見積り
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="brand-logo" style="margin-bottom: 16px;">&Princess</div>
+    <div class="footer-links">
+      <a href="#pricing">料金プラン</a>
+      <a href="#contact">お問い合わせ</a>
+    </div>
+    <div class="copyright">
+      &copy; +Yana / &Princess. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
