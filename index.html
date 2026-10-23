@@ -9,15 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-pink-pale: #fce8f3;
-            --color-lavender: #e8d7f5;
-            --color-ivory: #fffbf5;
+            --color-ivory-glass: rgba(255, 253, 250, 0.85);
             --color-gold: #dfb15b;
             --color-gold-dark: #c4963e;
             --color-text-main: #5a4b5e;
-            --color-text-sub: #84757c;
-            --white-glass: rgba(255, 255, 255, 0.75);
-            --shadow-soft: 0 10px 30px rgba(180, 150, 200, 0.2);
+            --color-text-sub: #7a6b72;
+            --shadow-princess: 0 15px 40px rgba(180, 150, 200, 0.25);
         }
 
         * {
@@ -33,35 +30,35 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            padding-bottom: 90px;
+            padding-bottom: 110px; /* 下部ブラウザバーのスペース */
             
-            /* 1. 背景の根本的改善：幻想的な宮殿と光の重なり（CSSグラデーションとSVG/マスクの高度な組み合わせ） */
-            background: 
-                /* 最下層：幻想的なパステル光のボケ（玉ボケ） */
-                radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 20%),
-                radial-gradient(circle at 85% 25%, rgba(255, 230, 245, 0.7) 0%, transparent 25%),
-                radial-gradient(circle at 50% 70%, rgba(240, 220, 255, 0.8) 0%, transparent 35%),
-                radial-gradient(circle at 90% 85%, rgba(255, 255, 255, 0.85) 0%, transparent 22%),
-                /* ベースグラデーション：ラベンダー、淡いピンク、アイボリーの自然な重なり */
-                linear-gradient(135deg, var(--color-pink-pale) 0%, #e8d7f5 45%, #f7effb 75%, var(--color-ivory) 100%);
-            
-            /* 2. 装飾と質感の改善：お城と真珠のシルエットを背景レイヤーとして埋め込む */
+            /* 1. 背景の根本的改善：幻想的なお城・宮殿の写真素材と、パステル光の重なり */
+            background-color: #f7effb;
             background-image: 
-                /* お城の幻想的なシルエット（CSSで描画） */
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M550,150 L550,100 L560,90 L560,70 L565,65 L565,50 L570,45 L570,30 L575,25 L580,30 L580,45 L585,50 L585,65 L590,70 L590,90 L600,100 L600,150 L650,150 L650,120 L660,110 L660,95 L665,90 L665,80 L675,70 L685,80 L685,90 L690,95 L690,110 L700,120 L700,150 L850,150 L850,200 L1200,400 L0,400 L350,200 L350,150 Z" fill="rgba(255,255,255,0.3)"/></svg>'),
-                /* 真珠のきらめきエフェクト（CSSで描画） */
-                radial-gradient(circle at 10% 20%, #fff 0, #fff 3px, transparent 4px),
-                radial-gradient(circle at 80% 15%, #fff 0, #fff 5px, transparent 6px),
-                radial-gradient(circle at 20% 80%, #fff 0, #fff 4px, transparent 5px),
-                radial-gradient(circle at 70% 90%, #fff 0, #fff 6px, transparent 7px);
-            
+                /* 柔らかな光のヴェール（ピンク＆ラベンダーの重なり） */
+                linear-gradient(135deg, rgba(252, 232, 243, 0.82) 0%, rgba(232, 215, 245, 0.80) 50%, rgba(255, 251, 245, 0.85) 100%),
+                /* 実写の宮殿・お城の高画質背景写真（商用利用可能リンク） */
+                url('https://images.unsplash.com/photo-1541971875076-8f970d573be6?q=80&w=1200&auto=format&fit=crop');
             background-repeat: no-repeat;
-            background-position: 
-                bottom center, /* お城 */
-                10% 20%, 80% 15%, 20% 80%, 70% 90%; /* 真珠 */
-            background-size: 
-                100% auto, /* お城 */
-                auto auto, auto auto, auto auto, auto auto; /* 真珠 */
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* 幻想的な光の玉ボケ・きらめきレイヤー */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.9) 0%, transparent 25%),
+                radial-gradient(circle at 85% 25%, rgba(255, 220, 240, 0.6) 0%, transparent 30%),
+                radial-gradient(circle at 50% 80%, rgba(235, 210, 255, 0.7) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* メインコンテナ（スマートフォン最適幅） */
@@ -70,22 +67,22 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            padding: 12px;
+            padding: 16px 12px;
         }
 
-        /* 4. レイアウトの見直：ヘッダーを背景の世界観に自然に溶け込ませる */
+        /* ヘッダー */
         header {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 20px;
-            border: 1px solid rgba(223, 177, 91, 0.35);
-            box-shadow: var(--shadow-soft);
-            margin-bottom: 20px;
+            border-radius: 22px;
+            border: 1px solid rgba(223, 177, 91, 0.4);
+            box-shadow: 0 8px 30px rgba(223, 177, 91, 0.18);
+            margin-bottom: 24px;
         }
 
         .logo-area {
@@ -97,20 +94,18 @@
 
         .logo-icon {
             font-size: 20px;
-            filter: drop-shadow(0 2px 4px rgba(223, 177, 91, 0.4));
+            filter: drop-shadow(0 2px 5px rgba(223, 177, 91, 0.5));
         }
 
         .logo-text {
-            /* 3. 装飾と質感の改善：絵文字を避け、繊細な明朝体ロゴを採用 */
             font-family: 'Shippori Mincho', serif;
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 600;
             color: var(--color-text-main);
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
         }
 
         .header-btn {
-            /* 3. 装飾と質感の改善：光沢と立体感のあるボタン */
             background: linear-gradient(135deg, #dfb15b 0%, #c4963e 100%);
             color: #ffffff;
             padding: 7px 16px;
@@ -118,10 +113,9 @@
             font-size: 12px;
             font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(223, 177, 91, 0.35);
+            box-shadow: 0 4px 15px rgba(223, 177, 91, 0.35);
+            letter-spacing: 0.5px;
             transition: transform 0.2s ease;
-            border: none;
-            cursor: pointer;
         }
 
         .header-btn:active {
@@ -131,65 +125,69 @@
         /* ヒーローセクション */
         .hero {
             text-align: center;
-            padding: 15px 10px 25px;
+            padding: 10px 4px 25px;
         }
 
         .hero-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             color: var(--color-text-main);
             font-size: 12px;
             font-weight: 700;
-            padding: 6px 22px;
+            padding: 6px 24px;
             border-radius: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(223, 177, 91, 0.45);
+            margin-bottom: 22px;
+            border: 1px solid rgba(223, 177, 91, 0.5);
             box-shadow: 0 4px 15px rgba(223, 177, 91, 0.15);
             letter-spacing: 0.5px;
         }
 
+        /* 4. スマートフォンの表示修正：文字サイズと折り返しの最適化 */
         .hero h1 {
-            /* 4. レイアウトの見直し：文字を大きくしすぎず、余白を主役にする */
             font-family: 'Shippori Mincho', serif;
-            font-size: 22px;
+            font-size: 20.5px;
             font-weight: 500;
             color: var(--color-text-main);
             line-height: 1.75;
-            margin-bottom: 18px;
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 12px rgba(255, 255, 255, 0.95);
+            word-break: normal;
+            overflow-wrap: break-word;
         }
 
         .hero-desc {
             font-size: 13px;
             color: var(--color-text-sub);
-            margin-bottom: 25px;
-            line-height: 1.8;
-            padding: 0 10px;
+            margin-bottom: 28px;
+            line-height: 1.85;
+            padding: 0 8px;
+            font-weight: 400;
         }
 
-        /* 3. 装飾と質感の改善：透け感のあるアイボリーカード */
+        /* 2. 半透明のアイボリーカード（繊細な点線枠とパール調の輝き） */
         .princess-card {
-            background: var(--white-glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: var(--color-ivory-glass);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border-radius: 28px;
-            padding: 28px 20px;
-            margin-bottom: 25px;
-            border: 2px dashed rgba(223, 177, 91, 0.5); /* 繊細な点線枠 */
-            box-shadow: var(--shadow-soft);
+            padding: 30px 20px;
+            margin-bottom: 28px;
+            border: 2px dashed rgba(223, 177, 91, 0.55);
+            box-shadow: var(--shadow-princess);
             position: relative;
         }
 
         .princess-card::before {
-            content: '👑'; /* ブランディングとしての王冠は残すが、配置を工夫 */
+            content: '👑';
             position: absolute;
-            top: -14px;
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 20px;
-            background: #fff;
-            padding: 0 10px;
-            border-radius: 10px;
+            background: #ffffff;
+            padding: 0 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(223, 177, 91, 0.25);
         }
 
         .princess-card p {
@@ -197,7 +195,7 @@
             color: var(--color-text-sub);
             margin-bottom: 22px;
             text-align: center;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         /* 立体的なグラデーションCTAボタン */
@@ -226,7 +224,7 @@
             background: linear-gradient(135deg, #fff5f8 0%, #fce1ee 100%);
             color: #b54574;
             border: 2px solid var(--color-gold);
-            box-shadow: 0 6px 20px rgba(223, 177, 91, 0.25);
+            box-shadow: 0 6px 20px rgba(223, 177, 91, 0.3);
         }
 
         .btn-line:hover {
@@ -238,7 +236,7 @@
             background: #ffffff;
             color: var(--color-text-main);
             border: 2px solid #eab6cc;
-            box-shadow: 0 4px 15px rgba(234, 182, 204, 0.2);
+            box-shadow: 0 4px 15px rgba(234, 182, 204, 0.25);
         }
 
         .btn-mail:hover {
@@ -248,22 +246,22 @@
 
         /* セクション（イベント風景・選ばれる理由） */
         section {
-            padding: 10px 0 25px;
+            padding: 10px 0 20px;
         }
 
         .section-title {
             text-align: center;
             font-family: 'Shippori Mincho', serif;
-            font-size: 19px;
+            font-size: 19.5px;
             color: var(--color-text-main);
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             font-weight: 600;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 35px;
+            width: 38px;
             height: 3px;
             background: var(--color-gold);
             margin: 8px auto 0;
@@ -271,30 +269,31 @@
         }
 
         .gallery-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 22px;
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 32px 20px;
             text-align: center;
-            border: 2px dashed rgba(223, 177, 91, 0.45);
+            border: 2px dashed rgba(223, 177, 91, 0.5);
             color: var(--color-text-sub);
-            box-shadow: 0 10px 30px rgba(223, 177, 91, 0.15);
+            box-shadow: 0 12px 35px rgba(223, 177, 91, 0.18);
         }
 
         .gallery-card .icon {
-            font-size: 38px;
-            margin-bottom: 8px;
+            font-size: 40px;
+            margin-bottom: 10px;
             color: var(--color-gold);
+            filter: drop-shadow(0 2px 4px rgba(223, 177, 91, 0.3));
         }
 
         .gallery-card p {
-            font-size: 13px;
+            font-size: 13.5px;
             font-family: 'Shippori Mincho', serif;
         }
 
-        /* 下部固定ブラウザバー（Safari風の上質なデザイン） */
+        /* スマホ下部ブラウザバー（Safari風の上質なデザイン） */
         .browser-bottom-bar {
-            background: rgba(245, 238, 248, 0.92);
+            background: rgba(245, 238, 248, 0.94);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             position: fixed;
@@ -326,7 +325,7 @@
                 <span class="logo-icon">👑</span>
                 <span class="logo-text">&Princess</span>
             </a>
-            <button class="header-btn">ご相談・お見積り</button>
+            <a href="#" class="header-btn">ご相談・お見積り</a>
         </header>
 
         <!-- ヒーローセクション -->
@@ -357,12 +356,12 @@
             </div>
         </div>
 
-        <!-- イベント風景 -->
+        <!-- 選ばれる理由 / イベント風景 -->
         <section>
-            <h2 class="section-title">イベント風景</h2>
+            <h2 class="section-title">&Princessが選ばれる理由</h2>
             <div class="gallery-card">
                 <div class="icon">🏰</div>
-                <p>イベント風景 01</p>
+                <p>物語の世界へ誘う上質なイベント風景 01</p>
             </div>
         </section>
     </div>
