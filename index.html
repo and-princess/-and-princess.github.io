@@ -28,10 +28,11 @@
             background: linear-gradient(135deg, #fce8f3 0%, #e9d5f0 50%, #f3ebfa 100%);
             color: var(--text-main);
             line-height: 1.6;
+            padding-top: 55px; /* 上部バーの高さ分 */
+            padding-bottom: 110px; /* 下部バーの高さ分 */
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            padding-bottom: 40px;
         }
 
         /* キラキラ・真珠エフェクト */
@@ -55,7 +56,7 @@
         /* お城のシルエット背景 */
         .castle-bg {
             position: fixed;
-            bottom: 0;
+            bottom: 60px;
             left: 0;
             width: 100%;
             height: 350px;
@@ -63,6 +64,44 @@
             background-size: cover;
             pointer-events: none;
             z-index: 0;
+        }
+
+        /* ブラウザ・トップバー（固定） */
+        .browser-top {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(223, 177, 91, 0.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .browser-top-left, .browser-top-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        .address-bar {
+            background: rgba(240, 230, 245, 0.7);
+            padding: 6px 24px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(223, 177, 91, 0.4);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
 
         /* メインコンテンツラッパー */
@@ -79,10 +118,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(223, 177, 91, 0.2);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(223, 177, 91, 0.15);
         }
 
         .logo-area {
@@ -246,9 +284,57 @@
         .gallery-card p {
             font-size: 12.5px;
         }
+
+        /* ブラウザ・ボトムバー（固定） */
+        .browser-bottom {
+            background: rgba(245, 238, 248, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(223, 177, 91, 0.3);
+            box-shadow: 0 -4px 20px rgba(223, 177, 91, 0.15);
+            z-index: 100;
+        }
+
+        .browser-bottom-icon {
+            font-size: 18px;
+            color: var(--text-main);
+        }
+
+        .url-display-bar {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-sub);
+            text-align: center;
+            border: 1px solid rgba(223, 177, 91, 0.3);
+            margin-top: 6px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- ブラウザ上部バー -->
+    <div class="browser-top">
+        <div class="browser-top-left">
+            <span>✕</span>
+        </div>
+        <div class="address-bar">
+            <span>🔒</span> &Princess Official
+        </div>
+        <div class="browser-top-right">
+            <span>⚡</span>
+            <span>•••</span>
+        </div>
+    </div>
 
     <div class="castle-bg"></div>
 
@@ -297,6 +383,15 @@
                 <p>イベント風景 01</p>
             </div>
         </section>
+    </div>
+
+    <!-- ブラウザ下部バー -->
+    <div class="browser-bottom">
+        <span class="browser-bottom-icon">💎</span>
+        <span class="browser-bottom-icon">👑</span>
+        <span class="browser-bottom-icon">✨</span>
+        <span class="browser-bottom-icon">📖</span>
+        <span class="browser-bottom-icon">❏</span>
     </div>
 
 </body>
