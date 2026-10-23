@@ -8,14 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-purple: #9b87a0;
-            --accent-pink: #d9a5b3;
-            --gold: #dfc187;
-            --text-main: #4a404b;
-            --white: #ffffff;
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -24,17 +16,38 @@
         }
 
         body {
-            /* 背景にお城の画像やグラデーションを敷く設定（bg.jpgの部分をお持ちの画像ファイル名に変えてな！） */
-            background-image: linear-gradient(rgba(247, 242, 248, 0.85), rgba(237, 223, 230, 0.85)), url('bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--text-main);
+            /* 送ってくれた画像のような、幻想的でふわふわしたグラデーション＆光の演出 */
+            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 35%, #e1bee7 70%, #d1c4e9 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #4a404b;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 16px 60px 16px;
+            padding: 24px 16px 60px 16px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* キラキラ光るエフェクトの重ね合わせ */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(white 15%, transparent 16%),
+                radial-gradient(rgba(255,255,255,0.8) 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            opacity: 0.35;
+            pointer-events: none;
         }
 
         .container {
@@ -44,17 +57,20 @@
             flex-direction: column;
             align-items: center;
             gap: 24px;
+            position: relative;
+            z-index: 1;
         }
 
         .badge {
-            background: linear-gradient(135deg, #b2a0b8 0%, #8f7995 100%);
-            color: var(--white);
+            background: linear-gradient(135deg, #b897be 0%, #95759b 100%);
+            color: #ffffff;
             font-size: 13px;
             font-weight: 500;
-            padding: 6px 20px;
+            padding: 8px 24px;
             border-radius: 50px;
-            box-shadow: 0 4px 12px rgba(155, 135, 160, 0.25);
+            box-shadow: 0 4px 15px rgba(184, 151, 190, 0.4);
             letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 255, 255, 0.6);
             margin-top: 10px;
         }
 
@@ -68,27 +84,29 @@
             font-size: 18px;
             font-weight: 700;
             color: #4a404b;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             letter-spacing: 0.03em;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.8);
         }
 
         .hero-text p {
             font-size: 14px;
             color: #6d5e6e;
             font-weight: 400;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
 
         .card {
             background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 2px dashed #e8d7de;
-            border-radius: 24px;
+            backdrop-filter: blur(12px);
+            border: 2px dashed #e2cdd7;
+            border-radius: 28px;
             padding: 24px 20px;
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 16px;
-            box-shadow: 0 8px 24px rgba(180, 150, 165, 0.12);
+            box-shadow: 0 10px 30px rgba(180, 150, 165, 0.18);
         }
 
         .card-desc {
@@ -109,7 +127,7 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(210, 164, 184, 0.3);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -119,13 +137,13 @@
 
         .btn-line {
             background: linear-gradient(135deg, #d2a4b8 0%, #b88fa3 100%);
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.7);
         }
 
         .btn-mail {
-            background: var(--white);
-            color: #6d5e6e;
+            background: rgba(255, 255, 255, 0.9);
+            color: #7a657c;
             border: 1.5px solid #d2a4b8;
         }
 
@@ -137,6 +155,7 @@
             margin-top: 10px;
             letter-spacing: 0.05em;
             position: relative;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
 
         .section-title::after {
@@ -151,22 +170,23 @@
 
         .gallery-card {
             background: rgba(255, 255, 255, 0.85);
-            border: 2px dashed #e8d7de;
-            border-radius: 24px;
+            backdrop-filter: blur(12px);
+            border: 2px dashed #e2cdd7;
+            border-radius: 28px;
             padding: 16px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 8px 24px rgba(180, 150, 165, 0.12);
+            box-shadow: 0 10px 30px rgba(180, 150, 165, 0.18);
         }
 
         .image-placeholder {
             width: 100%;
             height: 200px;
-            background: #f0e6ec;
-            border-radius: 16px;
+            background: linear-gradient(135deg, #f7edf2 0%, #ecdfee 100%);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -181,7 +201,7 @@
     <div class="container">
         <!-- 上部バッジ -->
         <div class="badge">
-            商業施設・店舗イベント専用プラン
+            ✨ 商業施設・店舗イベント専用プラン ✨
         </div>
 
         <!-- キャッチコピー -->
