@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>&Princess（アンドプリンセス） | キッズ向け体験型変身イベント</title>
+  <title>&Princess（アンドプリンセス） | 出張型ドレス＆撮影会イベント</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Kiwi+Maru:wght@400;500&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #f07ea5;
-      --primary-deep: #d95886;
-      --primary-soft: #fff0f5;
-      --lavender: #f4ecfa;
-      --accent-gold: #f3c35b;
-      --gold-dark: #b8860b;
-      --text: #4a3e44;
-      --text-sub: #786a71;
-      --card-bg: rgba(255, 255, 255, 0.92);
-      --border-pink: #fbd6e3;
+      --primary: #f596ba;
+      --primary-deep: #cc497b;
+      --primary-soft: #fff0f6;
+      --lavender: #f2e6fa;
+      --accent-gold: #f6d167;
+      --gold-dark: #af831d;
+      --text: #4a333c;
+      --text-sub: #7b5966;
+      --card-bg: rgba(255, 255, 255, 0.94);
+      --border-pink: #fcd5e4;
     }
 
     * {
@@ -30,14 +30,14 @@
     }
 
     body {
-      background: linear-gradient(135deg, #fff5f8 0%, #fdf0f7 40%, #f7f0fa 100%);
+      background: linear-gradient(135deg, #fff2f6 0%, #f7e6f8 40%, #ebf1fc 100%);
       color: var(--text);
       line-height: 1.85;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* 背景のキラキラ演出 */
+    /* キラキラ星屑と薔薇の背景演出 */
     body::before {
       content: "";
       position: fixed;
@@ -47,14 +47,16 @@
       height: 100%;
       pointer-events: none;
       background-image: 
-        radial-gradient(2px 2px at 20px 30px, #ffd700, rgba(0,0,0,0)),
-        radial-gradient(3px 3px at 80px 120px, #ffb6c1, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 200px 80px, #ffffff, rgba(0,0,0,0)),
-        radial-gradient(3px 3px at 300px 240px, #ffd700, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 150px 320px, #ffb6c1, rgba(0,0,0,0));
+        radial-gradient(3px 3px at 40px 60px, rgba(255, 215, 0, 0.8), rgba(0,0,0,0)),
+        radial-gradient(4px 4px at 120px 180px, rgba(255, 255, 255, 0.9), rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 250px 100px, rgba(242, 230, 250, 0.9), rgba(0,0,0,0)),
+        radial-gradient(5px 5px at 320px 290px, rgba(255, 182, 193, 0.8), rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 180px 420px, rgba(255, 255, 255, 1), rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 80px 320px, rgba(255, 192, 203, 0.5), rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 280px 480px, rgba(144, 238, 144, 0.4), rgba(0,0,0,0));
       background-repeat: repeat;
-      background-size: 350px 350px;
-      opacity: 0.6;
+      background-size: 400px 400px;
+      opacity: 0.7;
       z-index: 0;
     }
 
@@ -63,13 +65,14 @@
       position: sticky;
       top: 0;
       background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 14px 24px;
-      border-bottom: 2px solid #fbe6ef;
-      box-shadow: 0 4px 20px rgba(240, 126, 165, 0.08);
+      border-bottom: 2px solid rgba(252, 213, 228, 0.7);
+      box-shadow: 0 4px 30px rgba(245, 150, 186, 0.12);
       z-index: 100;
     }
 
@@ -79,57 +82,66 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       color: var(--primary-deep);
-      text-shadow: 1px 1px 2px rgba(240, 126, 165, 0.2);
+      text-shadow: 1px 1px 3px rgba(245, 150, 186, 0.3);
     }
 
     .nav-btn {
-      background: linear-gradient(135deg, #fba1be, #f07ea5);
+      background: linear-gradient(135deg, #fba1be, #ec89b1);
       color: #fff;
       text-decoration: none;
       padding: 9px 20px;
       border-radius: 99px;
       font-size: 0.85rem;
       font-weight: 700;
-      box-shadow: 0 3px 12px rgba(240, 126, 165, 0.3);
-      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(245, 150, 186, 0.35);
+      transition: all 0.3s ease;
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
     }
 
     .nav-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 16px rgba(240, 126, 165, 0.45);
+      box-shadow: 0 6px 20px rgba(245, 150, 186, 0.5);
     }
 
     /* --- ヒーローエリア --- */
     .hero {
       position: relative;
-      padding: 60px 20px 50px;
+      padding: 70px 20px 60px;
       text-align: center;
       z-index: 1;
     }
 
-    .tiara-icon {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
+    .castle-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
       display: inline-block;
-      filter: drop-shadow(0 2px 6px rgba(243, 195, 91, 0.5));
+      filter: drop-shadow(0 4px 8px rgba(242, 230, 250, 0.8)) drop-shadow(0 2px 4px rgba(246, 209, 103, 0.4));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     .hero-title {
       font-family: 'Kiwi Maru', serif;
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 500;
-      line-height: 1.5;
-      color: #a33e66;
-      margin-bottom: 18px;
-      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
+      line-height: 1.55;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #8c2e55 0%, #b84370 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 12px rgba(255, 255, 255, 0.95);
     }
 
     .hero-subtitle {
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       color: var(--text-sub);
-      max-width: 600px;
-      margin: 0 auto 34px;
-      line-height: 1.9;
+      max-width: 640px;
+      margin: 0 auto 38px;
+      line-height: 1.95;
     }
 
     .cta-container {
@@ -149,20 +161,22 @@
       text-decoration: none;
       font-weight: 700;
       font-size: 0.98rem;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
     }
 
     .btn-line {
-      background: linear-gradient(135deg, #0fe068, #06c755);
+      background: linear-gradient(135deg, #22e675, #00b345);
       color: #fff;
-      box-shadow: 0 6px 20px rgba(6, 199, 85, 0.3);
+      box-shadow: 0 6px 22px rgba(0, 179, 69, 0.35);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .btn-mail {
-      background: linear-gradient(135deg, #ffffff, #fff7fb);
+      background: linear-gradient(135deg, #ffffff, #fff2f7);
       color: #b04671;
-      border: 2px solid #fbd6e3;
-      box-shadow: 0 6px 18px rgba(240, 126, 165, 0.15);
+      border-color: #fcd2e2;
+      box-shadow: 0 6px 20px rgba(245, 150, 186, 0.18);
     }
 
     .btn-main:hover {
@@ -172,7 +186,7 @@
     /* --- セクション共通 --- */
     .section {
       position: relative;
-      padding: 50px 20px;
+      padding: 60px 20px;
       max-width: 860px;
       margin: 0 auto;
       z-index: 1;
@@ -180,12 +194,12 @@
 
     .section-title {
       text-align: center;
-      margin-bottom: 34px;
+      margin-bottom: 38px;
     }
 
     .section-title h2 {
       font-family: 'Kiwi Maru', serif;
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       color: #94345a;
       letter-spacing: 0.06em;
       position: relative;
@@ -194,69 +208,88 @@
     }
 
     .section-title h2::after {
-      content: "✨ ✨ ✨";
+      content: "🌸 ✨ 🏰 ✨ 🌸";
       display: block;
-      font-size: 0.75rem;
-      letter-spacing: 0.4em;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
       color: var(--accent-gold);
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .section-title p {
       font-size: 0.88rem;
       color: var(--text-sub);
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
-    /* --- こだわりカード --- */
+    /* --- カードグリッド --- */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
 
     .feature-card {
       background: var(--card-bg);
-      border: 2px solid #ffe3ed;
-      border-radius: 24px;
-      padding: 30px 22px;
+      border: 2px solid #ffe8f2;
+      border-radius: 28px;
+      padding: 32px 24px;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(240, 126, 165, 0.08);
+      box-shadow: 0 8px 30px rgba(245, 150, 186, 0.12);
       position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #f596ba, #e1b4f7, #f6d167);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(245, 150, 186, 0.2);
+      border-color: #fcd5e4;
     }
 
     .feature-sparkle {
-      font-size: 1.6rem;
-      color: var(--accent-gold);
-      margin-bottom: 8px;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: inline-block;
     }
 
     .feature-card h3 {
       font-size: 1.15rem;
       color: #8c2a52;
       margin-bottom: 12px;
+      font-family: 'Kiwi Maru', serif;
     }
 
     .feature-card p {
       font-size: 0.88rem;
       color: var(--text-sub);
-      line-height: 1.75;
+      line-height: 1.8;
       text-align: left;
     }
 
-    /* --- 写真プレースホルダー --- */
+    /* --- ギャラリー（プレースホルダー） --- */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 16px;
       margin-top: 10px;
     }
 
     .photo-placeholder {
       aspect-ratio: 1 / 1;
-      background: linear-gradient(135deg, #fff0f5 0%, #f9e8f6 100%);
-      border: 2px dashed #f5bcd1;
-      border-radius: 18px;
+      background: linear-gradient(135deg, #ffeff5 0%, #f7e6f8 50%, #edf2fd 100%);
+      border: 2.5px dashed #f6adc9;
+      border-radius: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -264,21 +297,23 @@
       color: #b56c8c;
       font-size: 0.85rem;
       font-weight: 500;
-      box-shadow: 0 4px 12px rgba(240, 126, 165, 0.06);
+      box-shadow: 0 6px 20px rgba(245, 150, 186, 0.08);
+      position: relative;
+      overflow: hidden;
     }
 
     .photo-placeholder span {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       margin-bottom: 6px;
     }
 
     /* --- 料金プラン --- */
     .pricing-card {
-      background: linear-gradient(180deg, #ffffff 0%, #fff7fa 100%);
-      border: 3px solid #f9afcb;
-      border-radius: 28px;
-      padding: 38px 26px;
-      box-shadow: 0 12px 36px rgba(240, 126, 165, 0.16);
+      background: linear-gradient(180deg, #ffffff 0%, #fffbfd 100%);
+      border: 3px solid #f9afcc;
+      border-radius: 32px;
+      padding: 42px 28px;
+      box-shadow: 0 14px 40px rgba(245, 150, 186, 0.2);
       max-width: 620px;
       margin: 0 auto;
       position: relative;
@@ -289,71 +324,67 @@
       top: -14px;
       left: 50%;
       transform: translateX(-50%);
-      background: linear-gradient(135deg, #fcd077, #f3b942);
-      color: #634304;
+      background: linear-gradient(135deg, #fcd279, #f4b23b);
+      color: #583a00;
       font-size: 0.8rem;
       font-weight: 700;
-      padding: 4px 22px;
+      padding: 5px 24px;
       border-radius: 99px;
-      box-shadow: 0 3px 10px rgba(243, 185, 66, 0.35);
-      letter-spacing: 0.05em;
+      box-shadow: 0 4px 12px rgba(244, 178, 59, 0.4);
+      letter-spacing: 0.06em;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
     }
 
     .pricing-header {
       text-align: center;
       border-bottom: 2px dashed #fcdbe7;
-      padding-bottom: 22px;
-      margin-bottom: 24px;
+      padding-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .plan-name {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: #7d264a;
       margin-bottom: 8px;
+      font-family: 'Kiwi Maru', serif;
     }
 
     .price-value {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3.4rem;
+      font-size: 3.6rem;
       font-weight: 600;
       color: var(--primary-deep);
       line-height: 1;
     }
 
-    .price-unit {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-      margin-top: 8px;
-    }
-
     .plan-list {
       list-style: none;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .plan-list li {
-      padding: 10px 0;
-      border-bottom: 1px dotted #fae0eb;
+      padding: 11px 0;
+      border-bottom: 1.5px dotted #fae2ec;
       font-size: 0.92rem;
       display: flex;
       align-items: baseline;
     }
 
     .plan-list li::before {
-      content: "💖";
+      content: "🌸";
       margin-right: 10px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
     .sub-notice {
-      background: #fff0f6;
-      border: 1.5px solid #fcdbe7;
-      border-radius: 16px;
-      padding: 16px 18px;
+      background: #fdf1f6;
+      border: 1.5px solid #fce3ee;
+      border-radius: 18px;
+      padding: 18px 20px;
       font-size: 0.82rem;
-      color: #735361;
-      line-height: 1.75;
+      color: #6d4655;
+      line-height: 1.8;
     }
 
     /* --- 概要テーブル --- */
@@ -362,17 +393,17 @@
       border-collapse: separate;
       border-spacing: 0;
       margin-top: 10px;
-      background: #fff;
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 24px;
       overflow: hidden;
-      border: 2px solid #fce3ee;
-      box-shadow: 0 4px 18px rgba(240, 126, 165, 0.06);
+      border: 2px solid #fde5ef;
+      box-shadow: 0 6px 25px rgba(245, 150, 186, 0.08);
     }
 
     .spec-table th, .spec-table td {
-      padding: 15px 18px;
+      padding: 16px 20px;
       font-size: 0.88rem;
-      border-bottom: 1px solid #fdeef5;
+      border-bottom: 1.5px solid #fdeef5;
     }
 
     .spec-table tr:last-child th,
@@ -385,6 +416,7 @@
       width: 32%;
       color: #8c2a52;
       font-weight: 700;
+      font-family: 'Kiwi Maru', serif;
     }
 
     .spec-table td {
@@ -393,25 +425,27 @@
 
     /* --- フッター --- */
     footer {
-      background: rgba(255, 255, 255, 0.9);
-      border-top: 2px solid #fbe6ef;
-      padding: 40px 20px 24px;
+      background: rgba(255, 255, 255, 0.85);
+      border-top: 2px solid rgba(251, 230, 239, 0.8);
+      padding: 44px 20px 28px;
       text-align: center;
-      margin-top: 30px;
+      margin-top: 40px;
+      backdrop-filter: blur(10px);
     }
 
     .copyright {
       font-size: 0.75rem;
       color: #a8949e;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     @media (max-width: 640px) {
       .hero-title {
-        font-size: 1.6rem;
+        font-size: 1.65rem;
       }
       .gallery-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        gap: 14px;
       }
       .spec-table th, .spec-table td {
         display: block;
@@ -437,61 +471,116 @@
 
   <!-- ヒーローエリア -->
   <header class="hero">
-    <div class="tiara-icon">👑✨</div>
-    <h1 class="hero-title">特別なドレスで広がる笑顔。<br>上質なキッズ体験イベント</h1>
+    <div class="castle-icon">🏰✨</div>
+    <h1 class="hero-title">
+      お城のドレス、カメラのまばたき。<br>
+      小さな憧れに魔法をかけて<br>
+      物語の世界へご案内いたします。
+    </h1>
     <p class="hero-subtitle">
-      商業施設・住宅展示場・各種プロモーション向け。<br>
-      憧れのドレスから受付、着付け、夢のようなフォトブースの演出まで、専任プロチームがワンストップでお届けします。
+      各種店舗・商業施設のファミリー集客に。<br>
+      アンケート回答や相談会の強力なフックとなる、出張型ドレス＆撮影会イベント『&Princess』
     </p>
     <div class="cta-container">
-      <a href="https://line.me" target="_blank" rel="noopener" class="btn-main btn-line">
-        💬 公式LINEでお問い合わせ
+      <a href="https://lin.ee/UQhqi18" target="_blank" rel="noopener" class="btn-main btn-line">
+        💬 公式LINEでお問い合わせ・ご相談
       </a>
-      <a href="mailto:info@example.com" class="btn-main btn-mail">
-        ✉️ メールでご相談・お見積り
+      <a href="mailto:yanatasu.08@gmail.com" class="btn-main btn-mail">
+        ✉️ メールでお問い合わせ・お見積り
       </a>
     </div>
   </header>
 
-  <!-- こだわり -->
+  <!-- セクション1：イベントの狙い・導入メリット -->
   <section class="section">
     <div class="section-title">
-      <h2>安心と満足を支える3つのこだわり</h2>
-      <p>お子様の安全管理と特別な空間づくりを徹底しています</p>
+      <h2>来場者の足を止め、質の高い見込み客を獲得する</h2>
+      <p>イベントや店舗集客のご担当者様、こんな集客の課題はありませんか？</p>
     </div>
 
     <div class="card-grid">
       <div class="feature-card">
-        <div class="feature-sparkle">🌸</div>
-        <h3>専任スタッフ3名体制</h3>
-        <p>安全管理と細やかなお子様ケアを最優先に考え、イベント現場には必ず3名の専任スタッフが常駐いたします。</p>
+        <div class="feature-sparkle">📈</div>
+        <h3>来場数の底上げ</h3>
+        <p>週末のファミリー層の来場数を一気に増やし、イベントスペース全体に賑わいを創出します。</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-sparkle">👗</div>
-        <h3>上質な衣装と装飾</h3>
-        <p>細部までこだわったドレスと世界観を演出するフォトブースで、ファミリーの満足度と滞在価値を高めます。</p>
+        <div class="feature-sparkle">🎯</div>
+        <h3>質の高い商談へ誘導</h3>
+        <p>単なる冷やかしではなく、アンケート回収や個別相談に繋がる強力なキッカケ（特典）として機能します。</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-sparkle">🪄</div>
-        <h3>設営から撤収まで一括対応</h3>
-        <p>主催者様の手を煩わせない現場オペレーションを構築。スムーズな進行で会場の混乱を防ぎます。</p>
+        <h3>イベントの付加価値向上</h3>
+        <p>お子様とご家族に最高の体験を提供し、店舗・企業の地域での好印象やブランドイメージを高めます。</p>
       </div>
     </div>
   </section>
 
-  <!-- 写真ギャラリー -->
+  <!-- セクション2：選ばれる3つの理由 -->
+  <section class="section">
+    <div class="section-title">
+      <h2>&Princessが選ばれる3つの理由</h2>
+    </div>
+
+    <div class="card-grid" style="grid-template-columns: 1fr;">
+      <div class="feature-card" style="text-align: left; margin-bottom: 16px;">
+        <h3 style="font-size: 1.25rem;">1. 抜群のアイキャッチ力でファミリーを誘引</h3>
+        <p>華やかなドレスや世界観あふれるフォトブースが、会場内でお子様連れの目を釘付けにします。自然と人だかりができ、イベント全体の集客力を最大限に高めます[span_0](start_span)[span_0](end_span)。</p>
+      </div>
+
+      <div class="feature-card" style="text-align: left; margin-bottom: 16px;">
+        <h3 style="font-size: 1.25rem;">2. 面倒な運営はすべておまかせ（ワンストップ対応）</h3>
+        <p>機材や小物の持ち込み、空間の設営・撤収[span_1](start_span)[span_1](end_span)[span_2](start_span)[span_2](end_span)、カメラマンによる撮影からデータのお渡しまで一括でお届けします。施設側・店舗側のリソースを圧迫しません。</p>
+      </div>
+
+      <div class="feature-card" style="text-align: left;">
+        <h3 style="font-size: 1.25rem;">3. 東京近辺から日本全国どこへでも出張対応</h3>
+        <p>東京・埼玉・千葉を中心に、全国の店舗様やイベントスペースへフットワーク軽く駆けつけます[span_3](start_span)[span_3](end_span)[span_4](start_span)[span_4](end_span)。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション3：安心の実績と声 -->
+  <section class="section">
+    <div class="section-title">
+      <h2>安心の実績と参加者の声</h2>
+      <p>イベントにご参加いただいた親御様から高い満足度をいただいております</p>
+    </div>
+
+    <div class="feature-card" style="max-width: 620px; margin: 0 auto; text-align: left;">
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--primary-deep); font-weight: 600; margin-bottom: 8px; text-align: center;">
+        お客様満足度 <span style="font-size: 3rem;">98.4%</span>
+      </div>
+      <p style="text-align: center; font-size: 0.85px; color: var(--text-sub); margin-bottom: 24px;">※2024年10月〜2025年3月実施のイベントアンケートより集計[span_5](start_span)[span_5](end_span)</p>
+      
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 0.9rem;">
+        <li style="background: var(--primary-soft); padding: 14px 18px; border-radius: 16px; border-left: 4px solid var(--primary);">
+          「写真スタジオだと緊張してしまうけれど、気軽にできて価格もありがたかった[span_6](start_span)[span_6](end_span)」
+        </li>
+        <li style="background: var(--primary-soft); padding: 14px 18px; border-radius: 16px; border-left: 4px solid var(--primary);">
+          「子どもへの声かけが温かく、安心しておまかせできました[span_7](start_span)[span_7](end_span)」
+        </li>
+        <li style="background: var(--primary-soft); padding: 14px 18px; border-radius: 16px; border-left: 4px solid var(--primary);">
+          「無料相談の特典として、子どもの嬉しそうな顔が見られて大満足でした[span_8](start_span)[span_8](end_span)」
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 現場イメージギャラリー -->
   <section class="section">
     <div class="section-title">
       <h2>現場イメージ</h2>
-      <p>※写真は順次追加・更新いたします</p>
+      <p>世界観を彩るドレスやフォトブースの様子</p>
     </div>
 
     <div class="gallery-grid">
-      <div class="photo-placeholder"><span>✨</span>イベント風景 01</div>
+      <div class="photo-placeholder"><span>🏰</span>イベント風景 01</div>
       <div class="photo-placeholder"><span>👗</span>ドレスラインナップ</div>
-      <div class="photo-placeholder"><span>🎀</span>撮影フォトブース</div>
+      <div class="photo-placeholder"><span>🌸</span>撮影フォトブース</div>
     </div>
   </section>
 
@@ -506,22 +595,24 @@
       <div class="pricing-ribbon">POPULAR PLAN</div>
       <div class="pricing-header">
         <div class="plan-name">基本パッケージ</div>
-        <div class="price-value">70,000<span style="font-size:1.2rem; font-weight:400; color:var(--text);"> 円</span></div>
-        <div class="price-unit">税別 / 2時間開催（専任スタッフ3名体制）</div>
+        <div class="price-value">70,000<span style="font-size:1.2rem; font-weight:400; color:var(--text);"> 円（税別）</span></div>
+        <div class="price-unit">2時間開催</div>
       </div>
 
       <ul class="plan-list">
         <li><strong>イベント実施時間：</strong> 2時間</li>
-        <li><strong>現場体制：</strong> 専任プロスタッフ 3名</li>
+        <li><strong>現場体制：</strong> 基本3名体制</li>
         <li><strong>準備・片付け：</strong> 事前設営 約2時間 / 撤収 約1時間</li>
-        <li><strong>衣装・機材：</strong> 一式持ち込み・空間セッティング込み</li>
+        <li><strong>サービス内容：</strong> 衣装・小物のレンタル[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span)、フォトブース空間演出、カメラマンによる撮影、撮影データのお渡し（一式込み）</li>
       </ul>
 
       <div class="sub-notice">
         <strong>【諸経費・オプションについて】</strong><br>
         ・都内出張費：一律 4,500円（税別）<br>
-        ・都外・遠方開催：移動距離に応じた「遠方出張パッケージ（機材運搬・移動宿泊）」をお見積り時に一括提示いたします（後からの実費精算はございません）。<br>
-        ・時間延長・土日祝日対応などのご要望はお気軽にご相談ください。
+        ・都外・遠方開催：移動距離に応じた「遠方出張パッケージ」をお見積り時に一括提示いたします。<br>
+        ・土日祝日開催：＋10,000円（税別）<br>
+        ・時間延長：1時間につき ＋10,000円（税別）<br>
+        ・その他ご要望はお気軽にご相談ください。
       </div>
     </div>
   </section>
@@ -535,7 +626,7 @@
     <table class="spec-table">
       <tr>
         <th>事業屋号</th>
-        <td>+Yana(ヤナタス)</td>
+        <td>+Yana（ヤナタス） ※個人事業主</td>
       </tr>
       <tr>
         <th>サービス名</th>
@@ -546,11 +637,15 @@
         <td>基本3名体制（設営2h / 本番2h / 撤収1h）</td>
       </tr>
       <tr>
-        <th>所在地</th>
-        <td>東京都港区（※詳細な番地・連絡先はご契約・お取引時に遅滞なく開示いたします）</td>
+        <th>主な対象</th>
+        <td>保険代理店、住宅展示場、自動車ディーラー、商業施設 等[span_11](start_span)[span_11](end_span)</td>
       </tr>
       <tr>
-        <th>お問い合わせ窓口</th>
+        <th>所在地</th>
+        <td>東京都（※詳細な番地・連絡先はご契約・お取引時に遅滞なく開示いたします）</td>
+      </tr>
+      <tr>
+        <th>お問い合わせ</th>
         <td>公式LINE / 電子メール</td>
       </tr>
     </table>
@@ -564,11 +659,11 @@
     </div>
 
     <div class="cta-container">
-      <a href="https://line.me" target="_blank" rel="noopener" class="btn-main btn-line">
-        💬 公式LINEでお問い合わせ
+      <a href="https://lin.ee/UQhqi18" target="_blank" rel="noopener" class="btn-main btn-line">
+        💬 公式LINEでお問い合わせ・ご相談
       </a>
-      <a href="mailto:info@example.com" class="btn-main btn-mail">
-        ✉️ メールでご相談・お見積り
+      <a href="mailto:yanatasu.08@gmail.com" class="btn-main btn-mail">
+        ✉️ メールでお問い合わせ・お見積り
       </a>
     </div>
   </section>
@@ -576,6 +671,9 @@
   <!-- フッター -->
   <footer>
     <div class="brand-logo" style="margin-bottom: 12px;">👑 &Princess</div>
+    <p style="font-size: 0.82rem; color: var(--text-sub); margin-bottom: 10px;">
+      ファミリー層の心を掴む、特別な集客の魔法をあなたの店舗・イベントに。
+    </p>
     <div class="copyright">
       &copy; +Yana / &Princess. All Rights Reserved.
     </div>
