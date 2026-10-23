@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f5f0f6;
             --primary-purple: #9b87a0;
             --accent-pink: #d9a5b3;
             --gold: #dfc187;
@@ -25,8 +24,11 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            background-image: linear-gradient(135deg, #f7f2f8 0%, #ecdfe6 100%);
+            /* 背景にお城の画像やグラデーションを敷く設定（bg.jpgの部分をお持ちの画像ファイル名に変えてな！） */
+            background-image: linear-gradient(rgba(247, 242, 248, 0.85), rgba(237, 223, 230, 0.85)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
