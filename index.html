@@ -11,12 +11,11 @@
         :root {
             --color-pink-pale: #fce8f3;
             --color-lavender: #e8d7f5;
-            --color-ivory: #fffbf5;
             --color-gold: #dfb15b;
             --color-gold-dark: #c4963e;
             --color-text-main: #5a4b5e;
-            --color-text-sub: #84757c;
-            --white-trans: rgba(255, 255, 255, 0.75);
+            --color-text-sub: #7a6b72;
+            --white-glass: rgba(255, 255, 255, 0.82);
         }
 
         * {
@@ -27,16 +26,20 @@
 
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
-            background: linear-gradient(135deg, #fce8f3 0%, #ecdcf7 40%, #f7effb 70%, #fffbf5 100%);
             color: var(--color-text-main);
-            line-height: 1.7;
+            line-height: 1.8;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            padding-bottom: 90px;
+            /* 実写のお城・宮殿の背景写真と、パステルカラーの重なり */
+            background: 
+                linear-gradient(135deg, rgba(252, 232, 243, 0.88) 0%, rgba(232, 215, 245, 0.85) 50%, rgba(255, 251, 245, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1541971875076-8f970d573be6?q=80&w=1000&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            padding: 16px 12px 50px;
         }
 
-        /* 幻想的な光のボケ・レイヤー (多重グラデーション) */
+        /* 幻想的な光の玉ボケ・きらめきレイヤー */
         body::before {
             content: '';
             position: fixed;
@@ -45,44 +48,10 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 25%),
-                radial-gradient(circle at 80% 30%, rgba(255, 230, 245, 0.7) 0%, transparent 30%),
-                radial-gradient(circle at 50% 70%, rgba(240, 220, 255, 0.8) 0%, transparent 40%),
-                radial-gradient(circle at 90% 85%, rgba(255, 255, 255, 0.85) 0%, transparent 25%),
-                radial-gradient(circle at 10% 90%, rgba(255, 240, 245, 0.6) 0%, transparent 35%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* パールと輝きのドットエフェクト */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 12% 22%, #fff 0, #fff 3px, transparent 4px),
-                radial-gradient(circle at 88% 12%, #fff 0, #fff 5px, transparent 6px),
-                radial-gradient(circle at 28% 68%, #fff 0, #fff 4px, transparent 5px),
-                radial-gradient(circle at 72% 78%, #fff 0, #fff 6px, transparent 7px),
-                radial-gradient(circle at 45% 40%, #fff 0, #fff 3px, transparent 4px),
-                radial-gradient(circle at 82% 55%, #fff 0, #fff 4px, transparent 5px);
-            opacity: 0.6;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* お城・宮殿の幻想的なシルエット背景 */
-        .palace-bg-layer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 420px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" preserveAspectRatio="none"><path d="M480,180 L480,120 L490,110 L490,80 L495,75 L495,50 L500,40 L500,20 L505,10 L510,20 L510,40 L515,50 L515,75 L520,80 L520,110 L530,120 L530,180 L580,180 L580,140 L590,125 L590,100 L595,90 L595,75 L605,60 L615,75 L615,90 L620,100 L620,125 L630,140 L630,180 L750,180 L750,220 L1200,450 L0,450 L300,220 L300,180 Z" fill="rgba(255,255,255,0.3)"/></svg>') no-repeat bottom center;
-            background-size: cover;
+                radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.9) 0%, transparent 25%),
+                radial-gradient(circle at 85% 25%, rgba(255, 220, 240, 0.7) 0%, transparent 30%),
+                radial-gradient(circle at 50% 80%, rgba(235, 210, 255, 0.8) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(255, 255, 255, 0.85) 0%, transparent 20%);
             pointer-events: none;
             z-index: 0;
         }
@@ -93,22 +62,21 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            padding: 12px;
         }
 
         /* ヘッダー */
         header {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 20px;
-            border: 1px solid rgba(223, 177, 91, 0.35);
-            box-shadow: 0 8px 25px rgba(223, 177, 91, 0.15);
-            margin-bottom: 20px;
+            border-radius: 22px;
+            border: 1px solid rgba(223, 177, 91, 0.4);
+            box-shadow: 0 8px 30px rgba(223, 177, 91, 0.18);
+            margin-bottom: 24px;
         }
 
         .logo-area {
@@ -120,15 +88,15 @@
 
         .logo-icon {
             font-size: 20px;
-            filter: drop-shadow(0 2px 4px rgba(223, 177, 91, 0.4));
+            filter: drop-shadow(0 2px 5px rgba(223, 177, 91, 0.5));
         }
 
         .logo-text {
             font-family: 'Shippori Mincho', serif;
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 600;
             color: var(--color-text-main);
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
         }
 
         .header-btn {
@@ -139,7 +107,8 @@
             font-size: 12px;
             font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(223, 177, 91, 0.35);
+            box-shadow: 0 4px 15px rgba(223, 177, 91, 0.35);
+            letter-spacing: 0.5px;
             transition: transform 0.2s ease;
         }
 
@@ -150,64 +119,66 @@
         /* ヒーローセクション */
         .hero {
             text-align: center;
-            padding: 15px 10px 25px;
+            padding: 10px 4px 25px;
         }
 
         .hero-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             color: var(--color-text-main);
             font-size: 12px;
             font-weight: 700;
-            padding: 6px 22px;
+            padding: 6px 24px;
             border-radius: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(223, 177, 91, 0.45);
+            margin-bottom: 22px;
+            border: 1px solid rgba(223, 177, 91, 0.5);
             box-shadow: 0 4px 15px rgba(223, 177, 91, 0.15);
             letter-spacing: 0.5px;
         }
 
         .hero h1 {
             font-family: 'Shippori Mincho', serif;
-            font-size: 22px;
+            font-size: 22.5px;
             font-weight: 500;
             color: var(--color-text-main);
-            line-height: 1.75;
-            margin-bottom: 18px;
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
         }
 
         .hero-desc {
-            font-size: 13px;
+            font-size: 13.5px;
             color: var(--color-text-sub);
-            margin-bottom: 25px;
-            line-height: 1.8;
-            padding: 0 10px;
+            margin-bottom: 28px;
+            line-height: 1.85;
+            padding: 0 8px;
+            font-weight: 400;
         }
 
-        /* 半透明の高級感あるプリンセスカード */
+        /* 半透明の高級感あるプリンセスカード（点線＆パール風縁取り） */
         .princess-card {
-            background: var(--white-trans);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: var(--white-glass);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border-radius: 28px;
-            padding: 28px 20px;
-            margin-bottom: 25px;
-            border: 2px dashed rgba(223, 177, 91, 0.5);
-            box-shadow: 0 12px 35px rgba(210, 180, 225, 0.25);
+            padding: 30px 20px;
+            margin-bottom: 28px;
+            border: 2px dashed rgba(223, 177, 91, 0.55);
+            box-shadow: 0 15px 40px rgba(210, 180, 225, 0.3);
             position: relative;
         }
 
         .princess-card::before {
             content: '👑';
             position: absolute;
-            top: -14px;
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 20px;
-            background: #fff;
-            padding: 0 10px;
-            border-radius: 10px;
+            background: #ffffff;
+            padding: 0 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(223, 177, 91, 0.25);
         }
 
         .princess-card p {
@@ -215,7 +186,7 @@
             color: var(--color-text-sub);
             margin-bottom: 22px;
             text-align: center;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         /* 立体的なグラデーションCTAボタン */
@@ -244,7 +215,7 @@
             background: linear-gradient(135deg, #fff5f8 0%, #fce1ee 100%);
             color: #b54574;
             border: 2px solid var(--color-gold);
-            box-shadow: 0 6px 20px rgba(223, 177, 91, 0.25);
+            box-shadow: 0 6px 20px rgba(223, 177, 91, 0.3);
         }
 
         .btn-line:hover {
@@ -256,7 +227,7 @@
             background: #ffffff;
             color: var(--color-text-main);
             border: 2px solid #eab6cc;
-            box-shadow: 0 4px 15px rgba(234, 182, 204, 0.2);
+            box-shadow: 0 4px 15px rgba(234, 182, 204, 0.25);
         }
 
         .btn-mail:hover {
@@ -266,22 +237,22 @@
 
         /* セクション（イベント風景・選ばれる理由） */
         section {
-            padding: 10px 0 25px;
+            padding: 10px 0 20px;
         }
 
         .section-title {
             text-align: center;
             font-family: 'Shippori Mincho', serif;
-            font-size: 19px;
+            font-size: 19.5px;
             color: var(--color-text-main);
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             font-weight: 600;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 35px;
+            width: 38px;
             height: 3px;
             background: var(--color-gold);
             margin: 8px auto 0;
@@ -289,39 +260,78 @@
         }
 
         .gallery-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 22px;
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 32px 20px;
             text-align: center;
-            border: 2px dashed rgba(223, 177, 91, 0.45);
+            border: 2px dashed rgba(223, 177, 91, 0.5);
             color: var(--color-text-sub);
-            box-shadow: 0 10px 30px rgba(223, 177, 91, 0.15);
+            box-shadow: 0 12px 35px rgba(223, 177, 91, 0.18);
         }
 
         .gallery-card .icon {
-            font-size: 38px;
-            margin-bottom: 8px;
+            font-size: 40px;
+            margin-bottom: 10px;
             color: var(--color-gold);
+            filter: drop-shadow(0 2px 4px rgba(223, 177, 91, 0.3));
         }
 
         .gallery-card p {
-            font-size: 13px;
+            font-size: 13.5px;
             font-family: 'Shippori Mincho', serif;
         }
+    </style>
+</head>
+<body>
 
-        /* 下部固定ブラウザバー（Safari風の上質なデザイン） */
-        .browser-bottom-bar {
-            background: rgba(245, 238, 248, 0.92);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 12px 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(223, 177, 91, 0.35);
-            box-shadow:
+    <div class="site-container">
+        <!-- ヘッダー -->
+        <header>
+            <a href="#" class="logo-area">
+                <span class="logo-icon">👑</span>
+                <span class="logo-text">&Princess</span>
+            </a>
+            <a href="#" class="header-btn">ご相談・お見積り</a>
+        </header>
+
+        <!-- ヒーローセクション -->
+        <div class="hero">
+            <div class="hero-badge">商業施設・店舗イベント専用プラン</div>
+            <h1>
+                お城のドレス、カメラのまばたき。<br>
+                小さな憧れに魔法をかけて<br>
+                物語の世界へご案内いたします。
+            </h1>
+            <p class="hero-desc">
+                各種店舗・商業施設のファミリー集客に。<br>
+                アンケート回答や相談会の強力なフックとなる、<br>
+                出張型ドレス＆撮影会イベント『&Princess』
+            </p>
+
+            <!-- メインカードとCTA -->
+            <div class="princess-card">
+                <p>お気軽にお問い合わせ・お見積り・ご相談ください</p>
+                <div class="cta-container">
+                    <a href="#" class="btn btn-line">
+                        ✨ 公式LINEでお問い合わせ・ご相談
+                    </a>
+                    <a href="#" class="btn btn-mail">
+                        ✉️ メールでお問い合わせ・お見積り
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 選ばれる理由 / イベント風景 -->
+        <section>
+            <h2 class="section-title">&Princessが選ばれる理由</h2>
+            <div class="gallery-card">
+                <div class="icon">🏰</div>
+                <p>物語の世界へ誘う上質なイベント風景 01</p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
