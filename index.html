@@ -9,39 +9,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            --color-text-main: #4a3b4e;
+            --color-text-sub: #726378;
             --color-gold: #dfb15b;
-            --color-text-main: #5a4b5e;
-            --color-text-sub: #7a6b72;
-            --white-glass: rgba(255, 253, 250, 0.85);
+            --badge-green-from: #7fa88d;
+            --badge-green-to: #557d65;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
             color: var(--color-text-main);
-            line-height: 1.8;
+            line-height: 1.75;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            padding-bottom: 90px;
             
-            /* 【1. 背景】お城・宮殿の幻想的な背景写真とパステル光の重なり */
-            background-color: #f7effb;
+            /* 1. 全体の雰囲気と背景：幻想的なラベンダー＆パープルの多重グラデーション ＋ お城の空気感を持つ高画質背景写真 */
+            background-color: #eadef0;
             background-image: 
-                linear-gradient(135deg, rgba(252, 232, 243, 0.78) 0%, rgba(232, 215, 245, 0.75) 50%, rgba(255, 251, 245, 0.82) 100%),
-                url('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop');
+                radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.85) 0%, transparent 45%),
+                radial-gradient(circle at 20% 80%, rgba(230, 205, 245, 0.7) 0%, transparent 40%),
+                linear-gradient(180deg, rgba(238, 225, 245, 0.92) 0%, rgba(225, 208, 238, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1541971875076-8f970d573be6?q=80&w=1200&auto=format&fit=crop');
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
             background-attachment: fixed;
+            padding: 24px 14px 60px;
         }
 
-        /* 幻想的な光の玉ボケレイヤー */
+        /* 幻想的な光のきらめきレイヤー */
         body::before {
             content: '';
             position: fixed;
@@ -50,74 +54,77 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.85) 0%, transparent 25%),
-                radial-gradient(circle at 85% 25%, rgba(255, 220, 240, 0.6) 0%, transparent 30%),
-                radial-gradient(circle at 50% 80%, rgba(235, 210, 255, 0.7) 0%, transparent 40%);
+                radial-gradient(circle at 12% 25%, rgba(255, 255, 255, 0.9) 0, transparent 3px),
+                radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.7) 0, transparent 4px),
+                radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.8) 0, transparent 3px),
+                radial-gradient(circle at 78% 85%, rgba(255, 255, 255, 0.9) 0, transparent 5px);
             pointer-events: none;
             z-index: 0;
         }
 
-        .site-container {
-            max-width: 440px;
+        /* スマホ最適化ラッパー */
+        .page-container {
+            max-width: 420px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            padding: 16px 12px;
         }
 
         /* ヒーローセクション */
         .hero {
             text-align: center;
-            padding: 10px 4px 20px;
+            padding-top: 10px;
         }
 
-        /* 【2. ページ上部】緑色の立体的なプランバッジ */
+        /* 3. ボタンとバッジ：緑色に輝く立体的なピル型バッジ */
         .hero-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #7ba68e 0%, #527d65 100%);
+            background: linear-gradient(135deg, var(--badge-green-from) 0%, var(--badge-green-to) 100%);
             color: #ffffff;
-            font-size: 12px;
+            font-size: 12.5px;
             font-weight: 700;
-            padding: 7px 24px;
-            border-radius: 20px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 4px 15px rgba(82, 125, 101, 0.35);
+            padding: 7px 26px;
+            border-radius: 30px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            box-shadow: 0 6px 20px rgba(85, 125, 101, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
             letter-spacing: 0.5px;
         }
 
-        /* 【3. キャッチコピー】自然な3行表示で「まばたき」の分断を防止 */
+        /* 4. テキスト・フォント：エレガントな明朝体キャッチコピー */
         .hero h1 {
             font-family: 'Shippori Mincho', serif;
-            font-size: 20px;
+            font-size: 20.5px;
             font-weight: 500;
             color: var(--color-text-main);
-            line-height: 1.8;
+            line-height: 1.85;
             margin-bottom: 18px;
-            text-shadow: 0 2px 12px rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
             word-break: normal;
         }
 
         .hero-desc {
             font-size: 13px;
             color: var(--color-text-sub);
-            margin-bottom: 24px;
+            margin-bottom: 26px;
             line-height: 1.85;
-            padding: 0 8px;
+            padding: 0 6px;
+            font-weight: 400;
         }
 
-        /* 【4. 説明文と問い合わせカード】点線枠のカード */
+        /* 2. カード要素：半透明の白バックに繊細な点線（ステッチ風）ボーダー */
         .princess-card {
-            background: var(--white-glass);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-radius: 24px;
-            padding: 24px 16px;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 26px;
+            padding: 26px 18px;
             margin-bottom: 24px;
-            border: 2px dashed rgba(223, 177, 91, 0.55);
-            box-shadow: 0 12px 35px rgba(180, 150, 200, 0.25);
+            border: 2px dashed rgba(210, 180, 215, 0.85);
+            box-shadow: 0 12px 35px rgba(160, 130, 180, 0.18);
         }
 
+        /* 3. ボタン：上品なグラデーションと立体シャドウ */
         .cta-container {
             display: flex;
             flex-direction: column;
@@ -126,7 +133,7 @@
 
         .btn {
             width: 100%;
-            padding: 14px;
+            padding: 15px 20px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 700;
@@ -135,49 +142,50 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
         }
 
-        /* 紫色の立体的なLINE問い合わせボタン */
-        .btn-line {
-            background: linear-gradient(135deg, #e6d7f2 0%, #cbb1df 100%);
-            color: #5a3d75;
-            border: 2px solid rgba(223, 177, 91, 0.6);
-            box-shadow: 0 4px 15px rgba(160, 130, 190, 0.25);
+        .btn:active {
+            transform: scale(0.98);
         }
 
-        /* 白色の立体的なメール問い合わせボタン */
+        /* 紫がかった上品な立体LINEボタン */
+        .btn-line {
+            background: linear-gradient(135deg, #f2e9f7 0%, #d8c3e8 100%);
+            color: #5c3f6e;
+            border: 1.5px solid rgba(200, 170, 215, 0.9);
+            box-shadow: 0 5px 18px rgba(160, 130, 185, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        /* ピュアホワイトの立体メールボタン */
         .btn-mail {
             background: #ffffff;
             color: var(--color-text-main);
-            border: 2px solid #eab6cc;
-            box-shadow: 0 4px 15px rgba(234, 182, 204, 0.2);
+            border: 1.5px solid rgba(230, 195, 210, 0.9);
+            box-shadow: 0 5px 18px rgba(220, 175, 195, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
         }
 
-        /* 【5. イベント風景の写真カード】完全復元 */
-        .gallery-section {
-            margin-bottom: 24px;
-        }
-
+        /* イベント風景の写真カード（点線ステッチ） */
         .gallery-card {
-            background: rgba(255, 253, 250, 0.82);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 20px 16px;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 26px;
+            padding: 22px 18px;
             text-align: center;
-            border: 2px dashed rgba(223, 177, 91, 0.5);
-            box-shadow: 0 10px 30px rgba(180, 150, 200, 0.2);
+            border: 2px dashed rgba(210, 180, 215, 0.85);
+            box-shadow: 0 12px 35px rgba(160, 130, 180, 0.18);
         }
 
         .gallery-image-wrap {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             margin: 0 auto 10px;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid rgba(223, 177, 91, 0.4);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .gallery-image-wrap img {
@@ -191,65 +199,17 @@
             font-family: 'Shippori Mincho', serif;
             color: var(--color-text-sub);
         }
-
-        /* 【6. 次のセクション】 */
-        section {
-            padding: 10px 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Shippori Mincho', serif;
-            font-size: 19px;
-            color: var(--color-text-main);
-            margin-bottom: 18px;
-            font-weight: 600;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 35px;
-            height: 3px;
-            background: #dfb15b;
-            margin: 8px auto 0;
-            border-radius: 2px;
-        }
-
-        /* スマホ下部ブラウザバー */
-        .browser-bottom-bar {
-            background: rgba(245, 238, 248, 0.94);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 12px 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(223, 177, 91, 0.35);
-            box-shadow: 0 -5px 25px rgba(223, 177, 91, 0.15);
-            z-index: 100;
-        }
-
-        .bar-icon {
-            font-size: 18px;
-            color: var(--color-text-main);
-            opacity: 0.85;
-        }
     </style>
 </head>
 <body>
 
-    <div class="site-container">
+    <div class="page-container">
         <!-- ヒーローセクション -->
         <div class="hero">
-            <!-- 緑色の立体的なプランバッジ -->
+            <!-- 緑の立体ピル型バッジ -->
             <div class="hero-badge">商業施設・店舗イベント専用プラン</div>
             
-            <!-- 3行で自然に表示されるキャッチコピー -->
+            <!-- エレガントなキャッチコピー -->
             <h1>
                 お城のドレス、カメラのまばたき。<br>
                 小さな憧れに魔法をかけて<br>
@@ -262,14 +222,12 @@
                 出張型ドレス＆撮影会イベント『&Princess』
             </p>
 
-            <!-- 問い合わせカード -->
+            <!-- 問い合わせカード（点線ステッチ枠） -->
             <div class="princess-card">
                 <div class="cta-container">
-                    <!-- 紫色の立体的なLINE問い合わせボタン -->
                     <a href="#" class="btn btn-line">
                         ✨ 公式LINEでお問い合わせ・ご相談
                     </a>
-                    <!-- 白色の立体的なメール問い合わせボタン -->
                     <a href="#" class="btn btn-mail">
                         ✉️ メールでお問い合わせ・お見積り
                     </a>
@@ -277,29 +235,13 @@
             </div>
         </div>
 
-        <!-- 復元したイベント風景の写真カード -->
-        <div class="gallery-section">
-            <div class="gallery-card">
-                <div class="gallery-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1541971875076-8f970d573be6?q=80&w=400&auto=format&fit=crop" alt="イベント風景 01">
-                </div>
-                <p>イベント風景 01</p>
+        <!-- イベント風景の写真カード -->
+        <div class="gallery-card">
+            <div class="gallery-image-wrap">
+                <img src="https://images.unsplash.com/photo-1541971875076-8f970d573be6?q=80&w=400&auto=format&fit=crop" alt="イベント風景 01">
             </div>
+            <p>イベント風景 01</p>
         </div>
-
-        <!-- 次のセクション -->
-        <section>
-            <h2 class="section-title">&Princessが選ばれる理由</h2>
-        </section>
-    </div>
-
-    <!-- スマホ下部ブラウザバー -->
-    <div class="browser-bottom-bar">
-        <span class="bar-icon">💎</span>
-        <span class="bar-icon">👑</span>
-        <span class="bar-icon">✨</span>
-        <span class="bar-icon">📖</span>
-        <span class="bar-icon">❏</span>
     </div>
 
 </body>
